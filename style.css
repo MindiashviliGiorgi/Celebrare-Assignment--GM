@@ -49,6 +49,7 @@ body {
   justify-content: center;
   align-items: top;
   position: relative;
+
 }
 .container {
   width: 100%;
@@ -60,7 +61,7 @@ body {
   width: 100%;
   text-align: center;
   color: #fff;
-  font-size: 70px;
+  font-size: 40px;
 }
 .title h1 {
   border: 4px dashed #fff;
@@ -82,8 +83,12 @@ body {
 }
 .font,
 .size,
-.color {
+.color,
+.text {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 .font select,
 .size select,
@@ -104,4 +109,21 @@ body {
 }
 .text input::placeholder {
   color: #dddddd;
+}
+.textBtn {
+  padding: 5px 20px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #5d1167;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.textBtn:hover {
+  background-color: #b139c1;
+}
+.textBtn:active {
+  background-color: #5d1167;
 }

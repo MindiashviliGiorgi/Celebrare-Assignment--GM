@@ -11,8 +11,8 @@
   <header>
     <div class="header-main">
       <div class="header-btns">
-        <button>Cancel Update</button>
-        <button>Save Update</button>
+        <button id="cancelBtn" onclick="cancelUpdates()">Cancel Update</button>
+        <button id="saveBtn" onclick="saveChanges()">Save Update</button>
       </div>
     </div>
   </header>
@@ -21,7 +21,7 @@
     <div class="section-main">
       <div class="container">
         <div class="title">
-          <h1>Title Text</h1>
+          <h1 id="mainText">Title Text</h1>
         </div>
       </div>
     </div>
@@ -30,22 +30,22 @@
   <aside>
     <div class="aside-main">
       <div class="font">
-        <select id="selectFont">
-          <option value="">Font</option>
+        <select id="selectFont" onchange="changeFontFamily()">
+          <option value="">Font Family</option>
         </select>
       </div>
       <div class="size">
-        <select id="fontSize">
+        <select id="fontSize" onchange="changeFontSize()">
           <option value="">Size</option>
         </select>
       </div>
       <div class="color">
-        <select id="fontColor">
+        <select id="fontColor" onchange="changeTextColor()">
           <option value="">Color</option>
         </select>
       </div>
       <div class="text">
-        <input type="text" placeholder="Add Text" id="titleText">
+        <input type="text" placeholder="Add Text" id="titleText" onchange="changeText()">
       </div>
     </div>
   </aside>
