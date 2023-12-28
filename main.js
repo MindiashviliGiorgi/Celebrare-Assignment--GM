@@ -88,6 +88,8 @@ function saveChanges() {
   localStorage.setItem('savedFontFamily', titleText.style.fontFamily);
   localStorage.setItem('savedFontSize', titleText.style.fontSize);
   localStorage.setItem('savedFontColor', titleText.style.color);
+  localStorage.setItem('savedTextLeft', titleText.style.left);
+  localStorage.setItem('savedTextTop', titleText.style.top);
 }
 
 // load changes from localStorage
@@ -96,6 +98,8 @@ function loadChanges() {
   titleText.style.fontFamily = localStorage.getItem('savedFontFamily') || '';
   titleText.style.fontSize = localStorage.getItem('savedFontSize') || '';
   titleText.style.color = localStorage.getItem('savedFontColor') || '';
+  titleText.style.left = localStorage.getItem('savedTextLeft');
+  titleText.style.top = localStorage.getItem('savedTextTop');
 }
 
 // cancel Update / clearn localStorage
@@ -103,6 +107,31 @@ function cancelUpdates() {
   localStorage.clear()
   location.reload();
 }
+
+// text moving function
+let isDragging = false;
+let offsetX, offsetY
+
+function handleMouseDown(e) {
+  isDragging = true;
+  offsetX = e.clientX - titleText.getBoundingClientRect().left;
+  offsetY = e.clientY - titleText.getBoundingClientRect().top;
+}
+
+function handleMouseMove(e) {
+  if (isDragging) {
+    titleText.style.left = e.clientX - offsetX + 'px';
+    titleText.style.top = e.clientY - offsetY + 'px';
+  }
+}
+
+function handleMouseUp() {
+  isDragging = false;
+}
+
+titleText.addEventListener('mousedown', handleMouseDown);
+document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mouseup', handleMouseUp);
 
 createOptionsForFont();
 createOptionsForSize();

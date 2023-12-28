@@ -59,12 +59,14 @@ body {
 }
 .title {
   width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 40px;
+  height: 100%;
 }
 .title h1 {
   border: 4px dashed #fff;
+  text-align: center;
+  padding: 20px 30px;
+  font-size: 40px;
+  color: #fff;
 }
 /* aside */
 .aside-main {
@@ -126,4 +128,9 @@ body {
 }
 .textBtn:active {
   background-color: #5d1167;
+}
+
+#mainText {
+  position: absolute;
+  z-index: 1;
 }
